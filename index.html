@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Anime Novels</title>
+    <!-- استدعاء خطوط فخمة وأيقونات وشريط متحرك جاهز -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://jsdelivr.net" />
+    <style>
+        :root {
+            --bg-color: #0b0b0f;
+            --card-bg: #12121a;
+            --neon-blue: #00f0ff;
+            --neon-purple: #bd00ff;
+            --text-color: #e2e8f0;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        /* الهيدر الفخم */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(18, 18, 26, 0.8);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 0 15px rgba(189, 0, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        .logo span { color: var(--neon-purple); text-shadow: 0 0 10px var(--neon-purple); }
+        nav a, .coins-btn {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
+        .coins-btn {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        .coins-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(189, 0, 255, 0.8); }
+        
+        /* قسم الواجهة الترحيبية */
+        .hero {
+            text-align: center;
+            padding: 100px 5%;
+            background: linear-gradient(rgba(11,11,15,0.7), rgba(11,11,15,1)), url('https://unsplash.com') no-repeat center/cover;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--neon-purple);
+        }
+        .hero p { font-size: 18px; color: #a0aec0; max-width: 600px; margin: 0 auto 30px; }
+
+        /* شريط الروايات المتحرك */
+        .novels-section { padding: 60px 5%; }
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--neon-blue);
+            padding-left: 15px;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        .swiper { width: 100%; padding-bottom: 50px; }
+        .swiper-slide {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .swiper-slide:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        .cover-img { width: 100%; height: 350px; object-fit: cover; }
+        .novel-info { padding: 15px; }
+        .novel-info h3 { margin: 0 0 10px 0; font-size: 18px; }
+        .novel-info p { margin: 0; font-size: 13px; color: #a0aec0; }
+
+        /* قسم آخر الفصول الصادرة */
+        .latest-chapters { padding: 40px 5%; background: rgba(18,18,26,0.5); }
+        .chapter-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .chapter-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 4px solid var(--neon-purple);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chapter-item a { color: #fff; text-decoration: none; font-weight: 600; }
+        .chapter-item a:hover { color: var(--neon-purple); }
+        .time { font-size: 12px; color: #718096; }
+
+        /* الفوتر والإيميل */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #050507;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+            color: #718096;
+        }
+        footer a { color: var(--neon-blue); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NEON<span>NOVELS</span></div>
+        <nav>
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+            <a href="#" class="coins-btn">💰 Buy Coins</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to the Dark Realm</h1>
+        <p>Discover premium, immersive cyber-anime light novels. Read the latest translated chapters instantly with glowing interactive experiences.</p>
+    </section>
+
+    <!-- شريط الروايات المتحرك -->
+    <section class="novels-section">
+        <div class="section-title">Trending Novels</div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- رواية تجريبية 1 -->
+                <div class="swiper-slide" onclick="location.href='#'">
+                    <img src="https://unsplash.com" class="cover-img" alt="Novel Cover">
+                    <div class="novel-info">
+                        <h3>Shadow Monarch Legend</h3>
+                        <p>Action, Fantasy, System</p>
+                    </div>
+                </div>
+                <!-- رواية تجريبية 2 -->
+                <div class="swiper-slide" onclick="location.href='#'">
+                    <img src="https://unsplash.com" class="cover-img" alt="Novel Cover">
+                    <div class="novel-info">
+                        <h3>Cyberpunk Cultivator</h3>
+                        <p>Sci-Fi, Cultivation, Neon</p>
+                    </div>
+                </div>
+                <!-- رواية تجريبية 3 -->
+                <div class="swiper-slide" onclick="location.href='#'">
+                    <img src="https://unsplash.com" class="cover-img" alt="Novel Cover">
+                    <div class="novel-info">
+                        <h3>The Infinite Abyss</h3>
+                        <p>Mystery, Dark, Magic</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- أقرب الفصول المكتوبة مؤخراً -->
+    <section class="latest-chapters">
+        <div class="section-title">Latest Releases</div>
+        <div class="chapter-list">
+            <div class="chapter-item">
+                <a href="#">Shadow Monarch - Chapter 12</a>
+                <span class="time">10 mins ago</span>
+            </div>
+            <div class="chapter-item">
+                <a href="#">Cyberpunk Cultivator - Chapter 45</a>
+                <span class="time">2 hours ago</span>
+            </div>
+            <div class="chapter-item">
+                <a href="#">The Infinite Abyss - Chapter 03</a>
+                <span class="time">1 day ago</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NeonNovels. All Rights Reserved.</p>
+        <p>Contact Support: <a href="mailto:hamzabedjegha@gmail.com">hamzabedjegha@gmail.com</a></p>
+    </footer>
+
+    <!-- تشغيل محرك الشريط المتحرك للصور -->
+    <script src="https://jsdelivr.net"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+            }
+        });
+    </script>
+</body>
+</html>
