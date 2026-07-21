@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: drhdsp47-beep/my-anime-novels
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "novels"
+    label: "Novels"
+    folder: "content/novels"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Novel Title", name: "title", widget: "string" }
+      - { label: "Novel Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "cover", widget: "image" }
+      - { label: "Genre/Tags", name: "tags", widget: "string", hint: "e.g. Action, Fantasy" }
+
+  - name: "chapters"
+    label: "Chapters"
+    folder: "content/chapters"
+    create: true
+    slug: "{{novel-slug}}-chapter-{{chapter_number}}"
+    fields:
+      - { label: "Select Novel", name: "novel-slug", widget: "relation", collection: "novels", search_fields: ["title"], value_field: "title", display_fields: ["title"] }
+      - { label: "Chapter Number", name: "chapter_number", widget: "number", value_type: "int" }
+      - { label: "Chapter Title", name: "title", widget: "string" }
+      - { label: "Chapter Type", name: "type", widget: "select", options: ["Free", "Paid"], default: "Free" }
+      - { label: "Price (Coins)", name: "price", widget: "number", value_type: "int", default: 0, required: false, hint: "Set 0 if free" }
+      - { label: "Chapter Content", name: "body", widget: "markdown" }
