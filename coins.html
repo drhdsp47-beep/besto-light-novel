@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Coins - Neon Novels</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0b0f;
+            --card-bg: #12121a;
+            --neon-blue: #00f0ff;
+            --neon-purple: #bd00ff;
+            --text-color: #e2e8f0;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            padding: 20px 5%;
+            background: rgba(18, 18, 26, 0.8);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 0 15px rgba(189, 0, 255, 0.3);
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        .logo span { color: var(--neon-purple); }
+        
+        .container { padding: 60px 5%; }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px var(--neon-blue);
+        }
+        .subtitle { color: #a0aec0; margin-bottom: 40px; }
+
+        /* كروت الباقات الفخمة */
+        .packages-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .package-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 280px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .package-card:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 25px rgba(189, 0, 255, 0.4);
+            transform: translateY(-10px);
+        }
+        .coin-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 24px;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 35px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+            transition: 0.3s;
+        }
+        .buy-btn:hover {
+            box-shadow: 0 0 20px var(--neon-purple);
+            transform: scale(1.05);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neon-purple);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="location.href='index.html'" style="cursor:pointer">NEON<span>NOVELS</span></div>
+    </header>
+
+    <div class="container">
+        <h1>Purchase Coins</h1>
+        <p class="subtitle">Unlock premium chapters instantly and support the author directly.</p>
+        
+        <div class="packages-grid">
+            <!-- باقة 1 -->
+            <div class="package-card">
+                <div class="coin-amount">60</div>
+                <div class="price">$15.00</div>
+                <!-- رابط بايبال المباشر للباقة الأولى -->
+                <a href="https://paypal.com" target="_blank" class="buy-btn">Buy Now</a>
+            </div>
+
+            <!-- باقة 2 (الأكثر شعبية) -->
+            <div class="package-card" style="border-color: var(--neon-blue);">
+                <div class="popular-badge">Most Popular</div>
+                <div class="coin-amount">120</div>
+                <div class="price">$30.00</div>
+                <!-- رابط بايبال المباشر للباقة الثانية -->
+                <a href="https://paypal.com" target="_blank" class="buy-btn">Buy Now</a>
+            </div>
+
+            <!-- باقة 3 -->
+            <div class="package-card">
+                <div class="coin-amount">600</div>
+                <div class="price">$50.00</div>
+                <!-- رابط بايبال المباشر للباقة الثالثة -->
+                <a href="https://paypal.com" target="_blank" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
