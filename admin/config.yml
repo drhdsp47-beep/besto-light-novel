@@ -2,6 +2,7 @@ backend:
   name: github
   repo: drhdsp47-beep/my-anime-novels
   branch: main
+  site_domain: my-anime-novels.github.io
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -30,3 +31,4 @@ collections:
       - { label: "Chapter Type", name: "type", widget: "select", options: ["Free", "Paid"], default: "Free" }
       - { label: "Price (Coins)", name: "price", widget: "number", value_type: "int", default: 0, required: false, hint: "Set 0 if free" }
       - { label: "Chapter Content", name: "body", widget: "markdown" }
+
